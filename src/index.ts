@@ -139,7 +139,7 @@ function install(editor: NodeEditor, params: Cfg) {
     if (e.button !== MOUSE_LEFT_BUTTON) {
       return
     }
-    if (!e.ctrlKey) {
+    if (!e.shiftKey) {
       return
     }
 
@@ -179,7 +179,7 @@ function install(editor: NodeEditor, params: Cfg) {
     if (!cfg.enabled) {
       return
     }
-    if (!e.ctrlKey) {
+    if (!e.shiftKey) {
       return
     }
 
@@ -193,7 +193,7 @@ function install(editor: NodeEditor, params: Cfg) {
     if (!cfg.enabled) {
       return
     }
-    if (!e.ctrlKey) {
+    if (!e.shiftKey) {
       return
     }
     if (!pressing) {
@@ -252,14 +252,14 @@ function install(editor: NodeEditor, params: Cfg) {
   editor.on('keydown', (e) => {
     if (e.ctrlKey) {
       accumulate = true
-      selectionMode.innerText = (cfg.mode ?? [])[1] ?? '多选模式'
+      selectionMode.innerText = (cfg.mode ?? [])[1] ?? 'multi'
     }
   })
 
   editor.on('keyup', () => {
     if (accumulate) {
       accumulate = false
-      selectionMode.innerText = (cfg.mode ?? [])[0] ?? '单选模式'
+      selectionMode.innerText = (cfg.mode ?? [])[0] ?? 'single'
     }
   })
 
